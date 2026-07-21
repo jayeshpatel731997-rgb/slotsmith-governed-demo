@@ -1,0 +1,11 @@
+services:
+  slotsmith:
+    image: slotsmith:local
+    build: .
+    ports: ["8000:8000"]
+    volumes: ["slotsmith-data:/data"]
+    environment:
+      SLOTSMITH_DB: /data/slotsmith.db
+    restart: unless-stopped
+volumes:
+  slotsmith-data:

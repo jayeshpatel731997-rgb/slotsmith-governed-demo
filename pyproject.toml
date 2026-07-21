@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "slotsmith"
+version = "0.1.0"
+description = "Governed warehouse slotting on deterministic synthetic data"
+requires-python = ">=3.12"
+dependencies = ["fastapi==0.139.2", "uvicorn==0.51.0"]
+
+[project.optional-dependencies]
+dev = ["pytest==8.3.4", "httpx==0.28.1"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/slotsmith"]
